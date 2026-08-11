@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dani Felix | Manicure e Pedicure a Domicílio — São João da Boa Vista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wine:#5C1F2E;
+    --wine-dark:#3D141E;
+    --wine-soft:#8A3C4D;
+    --blush:#F4E1D8;
+    --blush-2:#EDD0C4;
+    --gold:#C08A4E;
+    --ink:#2A1A1B;
+    --ink-soft:#5C4A46;
+    --paper:#FBF5F0;
+    --line: rgba(92,31,46,0.18);
+    --radius:3px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;}
+  a{text-decoration:none;color:inherit;}
+  .container{max-width:1080px;margin:0 auto;padding:0 24px;}
+  :focus-visible{outline:2px solid var(--wine);outline-offset:3px;}
+
+  /* signature: half-moon arc motif, echoing the manicure "meia-lua" technique */
+  .arc{ width:64px; height:32px; }
+  .arc path{ stroke:var(--gold); fill:none; stroke-width:1.4; }
+
+  header{ position:sticky; top:0; z-index:50; background:rgba(251,245,240,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:18px 24px; max-width:1080px; margin:0 auto; }
+  .brand-mark{ font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--wine); font-style:italic; }
+  .brand-mark strong{ font-style:normal; font-weight:600; }
+  nav.links{ display:none; gap:30px; }
+  nav.links a{ color:var(--ink-soft); font-size:0.88rem; letter-spacing:0.02em; }
+  nav.links a:hover{ color:var(--wine); }
+  @media(min-width:820px){ nav.links{ display:flex; } }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:var(--radius); font-size:0.82rem; letter-spacing:0.05em; text-transform:uppercase; border:1px solid var(--wine); transition:all .25s ease; white-space:nowrap; }
+  .btn-solid{ background:var(--wine); color:var(--paper); }
+  .btn-solid:hover{ background:var(--wine-dark); }
+  .btn-ghost{ color:var(--wine); }
+  .btn-ghost:hover{ background:var(--wine); color:var(--paper); }
+
+  .hero{ position:relative; background:linear-gradient(180deg, var(--blush) 0%, var(--paper) 100%); padding:88px 24px 96px; text-align:center; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color:var(--wine); font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:24px; }
+  .eyebrow .rule{ width:26px; height:1px; background:var(--wine); display:inline-block; }
+  .hero h1{ font-size:clamp(2.2rem,6vw,3.9rem); color:var(--wine-dark); line-height:1.1; max-width:760px; margin:0 auto 20px; }
+  .hero h1 em{ color:var(--wine-soft); }
+  .hero p.lead{ max-width:520px; margin:0 auto 36px; color:var(--ink-soft); font-size:1.05rem; }
+  .hero-ctas{ display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-bottom:52px; }
+  .proof-strip{ display:flex; flex-wrap:wrap; justify-content:center; gap:30px; padding-top:30px; border-top:1px solid var(--line); max-width:600px; margin:0 auto; }
+  .proof-item{ text-align:center; }
+  .proof-item .num{ font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--wine); display:block; }
+  .proof-item .label{ font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); }
+
+  section{ padding:90px 24px; }
+  .section-head{ text-align:center; max-width:600px; margin:0 auto 52px; }
+  .section-head h2{ font-size:clamp(1.8rem,3.4vw,2.5rem); color:var(--wine-dark); }
+  .section-head p{ color:var(--ink-soft); margin-top:12px; }
+
+  .about{ background:var(--paper); }
+  .about-grid{ display:grid; gap:48px; align-items:center; }
+  @media(min-width:880px){ .about-grid{ grid-template-columns:0.9fr 1.1fr; gap:64px; } }
+  .about-visual{ background:var(--wine); color:var(--blush); border-radius:var(--radius); padding:56px 36px; text-align:center; }
+  .about-visual .brand-mark{ color:var(--blush); font-size:2rem; margin-bottom:14px; }
+  .about-visual p{ font-style:italic; color:var(--blush-2); font-size:1rem; }
+  .about-text h3{ font-size:1.5rem; color:var(--wine-dark); margin-bottom:16px; }
+  .about-text p{ color:var(--ink-soft); margin-bottom:14px; }
+  .about-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+  .tag{ font-size:0.76rem; letter-spacing:0.03em; text-transform:uppercase; padding:8px 16px; border:1px solid var(--wine-soft); color:var(--wine); border-radius:20px; }
+
+  .services{ background:var(--blush); }
+  .service-grid{ display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .service-card{ background:var(--paper); border:1px solid var(--line); padding:32px 26px; border-radius:var(--radius); transition:transform .25s ease, box-shadow .25s ease; }
+  .service-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px -22px rgba(92,31,46,0.35); }
+  .service-card h3{ font-size:1.2rem; color:var(--wine-dark); margin-bottom:10px; }
+  .service-card p{ color:var(--ink-soft); font-size:0.92rem; }
+
+  .how{ background:var(--paper); }
+  .how-grid{ display:grid; gap:28px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); counter-reset:step; }
+  .how-item{ position:relative; padding-left:0; }
+  .how-item .n{ font-family:'Cormorant Garamond',serif; font-size:2.4rem; color:var(--blush-2); display:block; line-height:1; margin-bottom:10px; }
+  .how-item h4{ font-size:1.05rem; color:var(--wine-dark); margin-bottom:8px; font-weight:600; font-family:'Mulish',sans-serif;}
+  .how-item p{ color:var(--ink-soft); font-size:0.9rem; }
+
+  .testimonials{ background:var(--wine-dark); color:var(--blush); }
+  .testimonials .section-head h2{ color:var(--blush); }
+  .testimonials .section-head p{ color:var(--blush-2); }
+  .t-grid{ display:grid; gap:22px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+  .t-card{ background:rgba(244,225,216,0.06); border:1px solid rgba(244,225,216,0.18); padding:28px 24px; border-radius:var(--radius); }
+  .t-stars{ color:var(--gold); letter-spacing:2px; margin-bottom:12px; font-size:0.85rem; }
+  .t-card p{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.02rem; color:var(--blush); margin-bottom:14px; }
+  .t-card .who{ font-size:0.72rem; color:var(--blush-2); text-transform:uppercase; letter-spacing:0.05em; opacity:0.8; }
+
+  .contact{ background:var(--blush); }
+  .contact-grid{ display:grid; gap:40px; }
+  @media(min-width:860px){ .contact-grid{ grid-template-columns:1fr 1fr; } }
+  .contact-block h3{ color:var(--wine-dark); font-size:1.4rem; margin-bottom:18px; }
+  .contact-row{ display:flex; gap:14px; margin-bottom:16px; color:var(--ink-soft); font-size:0.94rem; align-items:flex-start; }
+  .contact-row .k{ color:var(--wine); min-width:100px; text-transform:uppercase; font-size:0.72rem; letter-spacing:0.05em; padding-top:3px; }
+  .hours-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:32px; }
+  .hours-card h4{ color:var(--wine-dark); font-family:'Cormorant Garamond',serif; font-size:1.2rem; margin-bottom:16px; }
+  .hours-row{ display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed var(--line); font-size:0.9rem; color:var(--ink-soft); }
+  .hours-row.open span:last-child{ color:var(--wine); font-weight:600; }
+
+  footer{ background:var(--wine-dark); color:var(--blush-2); padding:34px 24px; text-align:center; font-size:0.8rem; }
+  footer .brand-mark{ color:var(--blush); margin-bottom:8px; }
+  footer .fine{ opacity:0.6; margin-top:6px; }
+
+  .float-wa{ position:fixed; bottom:22px; right:22px; z-index:60; background:var(--wine); color:var(--paper); width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 28px -8px rgba(0,0,0,0.45); font-size:1.4rem; }
+  @media(prefers-reduced-motion: reduce){ *{ transition:none !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <span class="brand-mark">Dani <strong>Felix</strong></span>
+    <nav class="links">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-solid" target="_blank" rel="noopener"
+       href="https://wa.me/5519988254072?text=Ol%C3%A1%2C%20Dani!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio.">
+       Agendar
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow"><span class="rule"></span> São João da Boa Vista · Atendimento a domicílio <span class="rule"></span></div>
+    <h1>Suas unhas cuidadas<br><em>no conforto da sua casa.</em></h1>
+    <p class="lead">Manicure e pedicure com todo o capricho de sempre — material esterilizado, pontualidade e um atendimento pensado para você, sem sair de casa.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" target="_blank" rel="noopener"
+         href="https://wa.me/5519988254072?text=Ol%C3%A1%2C%20Dani!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio.">
+         Agendar meu horário
+      </a>
+      <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+    </div>
+    <div class="proof-strip">
+      <div class="proof-item"><span class="num">5.0★</span><span class="label">25 avaliações no Google</span></div>
+      <div class="proof-item"><span class="num">100%</span><span class="label">material esterilizado</span></div>
+      <div class="proof-item"><span class="num">Qua–Sáb</span><span class="label">atendimento por agenda</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <div class="brand-mark">Dani Felix</div>
+      <p>Manicure &amp; Pedicure a domicílio</p>
+    </div>
+    <div class="about-text">
+      <div class="eyebrow"><span class="rule"></span> Sobre o atendimento</div>
+      <h3>Cuidado de perto, com toda a atenção que você merece</h3>
+      <p>Dani Felix é manicure e pedicure em São João da Boa Vista, com atendimento 100% a domicílio — o grande diferencial para quem tem a rotina corrida e não abre mão do cuidado com as unhas.</p>
+      <p>Nota 5.0 no Google, com clientes destacando a atenção aos detalhes, a pontualidade e o cuidado com a higiene: todo o material é esterilizado e descartável, seguindo as normas sanitárias.</p>
+      <div class="about-tags">
+        <span class="tag">Atendimento a Domicílio</span>
+        <span class="tag">Material Esterilizado</span>
+        <span class="tag">Esmaltação</span>
+        <span class="tag">Nail Art</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><span class="rule"></span> Serviços</div>
+      <h2>O cuidado que suas unhas pedem</h2>
+      <p>Escolha o serviço e agende direto no WhatsApp.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Esmaltação</h3>
+        <p>Aplicação caprichada, com acabamento uniforme e durável.</p>
+      </div>
+      <div class="service-card">
+        <h3>Cutilagem</h3>
+        <p>Tratamento suave da cutícula, com técnica e cuidado.</p>
+      </div>
+      <div class="service-card">
+        <h3>Francesinha</h3>
+        <p>O clássico atemporal, com o traço fino e bem definido.</p>
+      </div>
+      <div class="service-card">
+        <h3>Desenhos &amp; Nail Art</h3>
+        <p>Detalhes personalizados para deixar sua unha com a sua cara.</p>
+      </div>
+      <div class="service-card">
+        <h3>Pedicure</h3>
+        <p>Cuidado completo para os pés, do início ao acabamento.</p>
+      </div>
+      <div class="service-card">
+        <h3>Atendimento a Domicílio</h3>
+        <p>Todo o serviço realizado no conforto da sua casa, com hora marcada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="como-funciona">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><span class="rule"></span> Como funciona</div>
+      <h2>Simples, do agendamento ao resultado</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-item">
+        <span class="n">01</span>
+        <h4>Você chama no WhatsApp</h4>
+        <p>Escolhe o serviço e combina o melhor dia e horário, de quarta a sábado.</p>
+      </div>
+      <div class="how-item">
+        <span class="n">02</span>
+        <h4>Dani vai até você</h4>
+        <p>Atendimento no conforto da sua casa, com todo material esterilizado e descartável.</p>
+      </div>
+      <div class="how-item">
+        <span class="n">03</span>
+        <h4>Unhas prontas, com capricho</h4>
+        <p>Atenção aos detalhes do início ao fim, do jeitinho que as avaliações elogiam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="depoimentos">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--gold)"><span class="rule" style="background:var(--gold)"></span> Quem já experimentou</div>
+      <h2>Depoimentos verificados no Google</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>"Excelente profissional, trata as clientes com muito carinho. Esmaltação, cutilagem, desenhos, francesinha — tudo maravilhoso."</p>
+        <div class="who">Avaliação no Google</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>"Ótima profissional, trabalha de acordo com as leis sanitárias — tudo esterilizado e descartável."</p>
+        <div class="who">Avaliação no Google</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>"Para chave de ouro, atender a domicílio é um grande diferencial na correria da vida. Recomendo muito!"</p>
+        <div class="who">Avaliação no Google</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>"Delícia de espaço e atendimento! Voltarei sempre que precisar."</p>
+        <div class="who">Avaliação no Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="container contact-grid">
+    <div class="contact-block">
+      <div class="eyebrow"><span class="rule"></span> Contato</div>
+      <h3>Vamos agendar seu horário</h3>
+      <div class="contact-row"><span class="k">Região</span><span>Recanto dos Pássaros, São João da Boa Vista/SP</span></div>
+      <div class="contact-row"><span class="k">WhatsApp</span><span>(19) 98825-4072</span></div>
+      <div class="contact-row"><span class="k">Atendimento</span><span>A domicílio, com hora marcada</span></div>
+      <div class="hero-ctas" style="justify-content:flex-start; margin-top:26px;">
+        <a class="btn btn-solid" target="_blank" rel="noopener"
+           href="https://wa.me/5519988254072?text=Ol%C3%A1%2C%20Dani!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio.">
+           Agendar no WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hours-card">
+      <h4>Horário de atendimento</h4>
+      <div class="hours-row"><span>Segunda</span><span>Fechado</span></div>
+      <div class="hours-row"><span>Terça</span><span>Fechado</span></div>
+      <div class="hours-row open"><span>Quarta</span><span>8h – 17h</span></div>
+      <div class="hours-row open"><span>Quinta</span><span>8h – 17h</span></div>
+      <div class="hours-row open"><span>Sexta</span><span>8h – 17h</span></div>
+      <div class="hours-row open"><span>Sábado</span><span>8h – 17h</span></div>
+      <div class="hours-row"><span>Domingo</span><span>Fechado</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand-mark">Dani Felix — Manicure e Pedicure</div>
+  <div>São João da Boa Vista · SP</div>
+  <div class="fine">© 2026 Dani Felix. Todos os direitos reservados.</div>
+</footer>
+
+<a class="float-wa" target="_blank" rel="noopener" aria-label="Agendar no WhatsApp"
+   href="https://wa.me/5519988254072?text=Ol%C3%A1%2C%20Dani!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio.">
+   ✆
+</a>
+
+</body>
+</html>
